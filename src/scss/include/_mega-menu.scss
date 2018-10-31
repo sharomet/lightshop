@@ -1,0 +1,98 @@
+.mobile-mega-menu {
+	transform: translateX(-100%);
+	transition: transform 100ms ease-out;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	overflow: hidden;
+	background: $navbar-bg;
+	width: 280px;
+	z-index: 2;
+	border-right: 1px solid $border-color;
+	a, li, ul {
+		box-sizing: content-box;
+	}
+	li {
+		display: flex;
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+	&.open {
+    	transform: translateX(0);
+	}
+	.widget-region {
+    	background: #fff;
+    	padding: 10px 20px;
+    	clear: both;
+	}
+	nav {
+    	position: relative;
+	}
+	ul {
+	    transition: transform 100ms ease-out;
+	    list-style-type: none;
+	    margin: 0;
+	    padding: 0;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+    	width: 100%;
+	}
+	ul.has-been-viewed {
+	    transform: translateX(-100%);
+	}
+	ul li ul {
+	    left: 100%;
+	}
+	ul li a {
+	    color: $navbar-color;
+	    padding: 0.5rem 0.8rem;
+	    width: 100%;
+	    font-size: $navbar-link-size;
+	    display: block;
+	    &:hover {
+	    	color: $primary;
+	    }
+	}
+	ul li ~ li {
+		border-top: 1px solid $border-color;
+	}
+	ul li a.has-next-button {
+	    flex: 0 1 100%;
+	    max-width: 100%;
+	}
+	ul li a {
+	    &.next-button {
+			text-align: center;
+			flex: 0 0 15px;
+	    	max-width: 15px;
+			&::after {
+				content: "\f067";
+				font-family: 'Font Awesome 5 Free';
+  				font-weight: 900;
+  				transition: color 0.3s, transform 0.4s;
+  				display: block;
+			}
+			&:hover {
+				&::after {
+					transform: rotate(180deg);
+					color: $primary;
+				}
+			}
+		}
+		&.back-button {
+			color: $primary;
+			&::before {
+				content: "\f104";
+				font-family: 'Font Awesome 5 Free';
+  				font-weight: 900;
+				margin-right: 10px;
+			}
+		}
+	}
+	ul li a.next-button .arrow {
+	    display: none;
+	}
+}
